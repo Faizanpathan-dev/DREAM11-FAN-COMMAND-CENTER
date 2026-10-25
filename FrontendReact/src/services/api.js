@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api/match';
+const BASE_URL = '/api/match';
 
 
 async function apiFetch(url, options = {}) {
