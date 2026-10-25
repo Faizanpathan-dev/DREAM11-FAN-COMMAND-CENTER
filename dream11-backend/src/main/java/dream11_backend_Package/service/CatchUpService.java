@@ -10,15 +10,13 @@ import dream11_backend_Package.data.MatchDataSource;
 import dream11_backend_Package.model.BallEvent;
 import lombok.RequiredArgsConstructor;
 
-@Service 
+@Service
 
 public class CatchUpService {
 
-private final ChatClient chatClient; 
+private final ChatClient chatClient;
 
 private  final MatchDataSource dataSource;
-
-
 
 public CatchUpService(ChatClient.Builder chatcBuilder , MatchDataSource dataSource){
 
@@ -26,10 +24,6 @@ this.chatClient = chatcBuilder.build();
 this.dataSource = dataSource;
 
 }
-
-
-
-
 
 public String catchUp(int targetOver){
 List<BallEvent> targBallEvents = new ArrayList<>();

@@ -17,7 +17,7 @@ public class LieDetectorService {
                 + "State clearly whether it is TRUE, FALSE, or HALF-TRUTH, and explain why with real stats in 2 sentences.";
 
         try {
-            // 🟢 Send to Gemini and return Gemini's answer directly!
+
             return chatClient.prompt()
                     .user(prompt)
                     .call()

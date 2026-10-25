@@ -6,8 +6,8 @@ import dream11_backend_Package.data.MatchDataSource;
 import dream11_backend_Package.model.BallEvent;
 import lombok.RequiredArgsConstructor;
 
-@Service 
-@RequiredArgsConstructor 
+@Service
+@RequiredArgsConstructor
 public class TensionService {
 
 
@@ -17,7 +17,7 @@ public class TensionService {
   public int calculateTension(BallEvent ball){
 
     if(ball == null ){
-        return  50 ; 
+        return  50 ;
     }
 
     double tension = 50.0;
@@ -39,15 +39,13 @@ else{
 
     tension += (parRunRateGap *3.5);
 
-   
+
 }
 
-
-
    tension += (ball.getWickets() * 4.0);
-        // Factor 3: Death Overs Multiplier (Over 16 to 20)
+
         if (ball.getOver() >= 16.0) {
-            tension *= 1.25; // 25% extra pressure in final overs
+            tension *= 1.25;
         }
 
 
@@ -66,12 +64,12 @@ else{
 
       else if (ball.getRuns() == 0 && ball.getOver()>15.0){
 
-        tension += 4.0 ; 
+        tension += 4.0 ;
       }
 
 
       int finalScore = (int) Math.round(tension);
-    
+
 return  Math.max(0,Math.min(100,finalScore));
 
 
@@ -84,5 +82,5 @@ return  Math.max(0,Math.min(100,finalScore));
         if (tension < 85) return "HIGH TENSION";
         return "CRITICAL CHAOS";
     }
-      
+
     }

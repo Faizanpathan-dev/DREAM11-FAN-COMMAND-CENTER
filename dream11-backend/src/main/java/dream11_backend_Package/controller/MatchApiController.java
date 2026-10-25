@@ -25,10 +25,10 @@ import dream11_backend_Package.service.TensionService;
 import org.springframework.web.bind.annotation.RequestBody;
 import lombok.RequiredArgsConstructor;
 
-@RestController 
+@RestController
 @RequestMapping ("/api/match")
 @CrossOrigin (origins = "*")
-@RequiredArgsConstructor 
+@RequiredArgsConstructor
 public class MatchApiController {
     private final MatchDataSource dataSource;
     private final TensionService tensionService;
@@ -38,7 +38,7 @@ public class MatchApiController {
 
     @GetMapping ("/live")
     public ResponseEntity <Map<String,Object>> getLiveBall(){
-       BallEvent nextBall  = dataSource.getNextBall();    
+       BallEvent nextBall  = dataSource.getNextBall();
 
       int tension  = tensionService.calculateTension(nextBall);
 
@@ -59,18 +59,12 @@ public class MatchApiController {
     public ResponseEntity<MatchState> getMatchState() {
         return ResponseEntity.ok(dataSource.getCurrentMatchState());
     }
-    /**
-     * 3. Fantasy Squad List (Feature 5: Dream Team Rescue)
-     * URL: http://localhost:8080/api/match/players
-     */
+
     @GetMapping("/players")
     public ResponseEntity<List<Player>> getPlayers() {
         return ResponseEntity.ok(dataSource.getAllPlayers());
     }
-    /**
-     * 4. Momentum Tracker Data (Feature 2: Line Chart)
-     * URL: http://localhost:8080/api/match/momentum
-     */
+
     @GetMapping("/momentum")
     public ResponseEntity<List<BallEvent>> getMomentum() {
         return ResponseEntity.ok(dataSource.getAllBallEvents());
@@ -78,8 +72,8 @@ public class MatchApiController {
 
  @GetMapping("/commentary")
     public ResponseEntity<String> getCommentary(@RequestParam String persona) {
-        // get the latest ball delivery from dataSource
-        BallEvent currentBall = dataSource.getNextBall(); 
+
+        BallEvent currentBall = dataSource.getNextBall();
         String commentary = commentaryService.generateCommentary(persona, currentBall);
         return ResponseEntity.ok(commentary);
     }
@@ -93,10 +87,5 @@ public ResponseEntity<String> getCatchUp(@PathVariable int over) {
 public ResponseEntity<String> verifyClaim(@RequestBody String claim) {
     return ResponseEntity.ok(lieDetectorService.verifyClaim(claim));
 }
-
-
-
-
-
 
 }

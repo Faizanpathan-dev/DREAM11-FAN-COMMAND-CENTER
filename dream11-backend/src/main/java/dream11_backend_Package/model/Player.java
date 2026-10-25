@@ -13,20 +13,14 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Player {
 
-    private String name;               // e.g. "Rohit Sharma"
-    private String team;                // e.g. "IND" or "NZ"
-    private String role;                // e.g. "BAT", "BOWL", "ALL", "WK"
-    private double credits;             // e.g. 9.5
-    private int currentPoints;          // Live Dream11 Fantasy Points (e.g. 68)
-    private int projectedPoints;        // AI predicted points (e.g. 112)
-    private boolean isCaptain;          // 2x points multiplier
-    private boolean isViceCaptain;      // 1.5x points multiplier
-    private String recommendation;  
-    
-    // e.g. "MAKE_CAPTAIN", "SAFE_PICK", "RISKY"
-
-
-
-    
+    private String name;
+    private String team;
+    private String role;
+    private double credits;
+    private int currentPoints;
+    private int projectedPoints;
+    private boolean isCaptain;
+    private boolean isViceCaptain;
+    private String recommendation;
 
 }

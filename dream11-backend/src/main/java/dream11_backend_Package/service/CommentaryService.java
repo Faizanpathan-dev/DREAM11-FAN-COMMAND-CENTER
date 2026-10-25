@@ -9,7 +9,7 @@ import dream11_backend_Package.data.MatchDataSource;
 import dream11_backend_Package.model.BallEvent;
 import lombok.RequiredArgsConstructor;
 
-@Service 
+@Service
 
 
 public class CommentaryService {
@@ -30,8 +30,8 @@ public  String generateCommentary(String person , BallEvent ball){
 
 String prompt = prompt(person, ball);
   try{
-     
-    
+
+
     return chatClient.prompt()
     .user(prompt)
     .call()
@@ -53,7 +53,7 @@ return  getFallback(person,ball);
 public String prompt (String person, BallEvent ball){
 
     return "your are a cricket commentator wit a "+ person + "personality "+
-        "context : over " + "Context: Over " + ball.getOver() + ", Bowler: " + ball.getBowler() 
+        "context : over " + "Context: Over " + ball.getOver() + ", Bowler: " + ball.getBowler()
                 + ", Batsman: " + ball.getBatsman() + ", Runs scored: " + ball.getRuns() + (ball.isWicket() ? "Wicket just fell !" : "")
                 +"Generate exactly 1 or 2 punchy immersive sentences of commentary matching your persona.";
 
@@ -71,11 +71,4 @@ public String prompt (String person, BallEvent ball){
         return ball.getBatsman() + " pushes it into the gap off " + ball.getBowler() + " for " + ball.getRuns() + " run(s).";
     }
 
-
-
-
-
-    
 }
-
-
